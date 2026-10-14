@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "Deep-Synthesis Information Risk Evolution and Agent-Based Simulation"
+authors:
+  - family-names: Zhang
+    given-names: Kejia
+version: "1.0.0"
+date-released: 2026-10-14
+repository-code: "https://github.com/zhangkejia2026/-"

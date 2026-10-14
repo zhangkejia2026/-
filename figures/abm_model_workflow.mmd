@@ -1,0 +1,43 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Microsoft YaHei, Arial, sans-serif",
+    "fontSize": "18px",
+    "primaryColor": "#EAF4FF",
+    "primaryTextColor": "#16324F",
+    "primaryBorderColor": "#3B82C4",
+    "lineColor": "#4B6584",
+    "secondaryColor": "#F5F8FC",
+    "tertiaryColor": "#FFF7E8"
+  },
+  "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 42, "rankSpacing": 60}
+}}%%
+flowchart TB
+  IN["<b>输入与参数化</b><br/>30条核心事件<br/>关系失稳编码 · 场景损害 · 核验时差<br/>结构参数 · 行为系数 · 控制参数"]
+  SET["<b>统一实验设置</b><br/>用户规模与异质性<br/>平台接触与证据形成<br/>六种机制条件，共享事件索引与随机种子"]
+
+  subgraph SOLVE["离散时间多智能体求解：每个时间步 t 的状态更新"]
+    direction TB
+    INIT["<b>状态初始化</b><br/>用户状态、关系状态、风险状态<br/>t = 0"]
+    CONTACT["<b>① 信息接触</b><br/>平台放大参数 A<br/>计算用户暴露与新增接触"]
+    BELIEF["<b>② 采信与行动</b><br/>认知偏差参数 B、个体易感性<br/>更新错误采信、现实行动与分享"]
+    EVIDENCE["<b>③ 证据形成与关系恢复</b><br/>核验时差 τ、证据参数 q<br/>更新来源/身份/事件/传播关系状态"]
+    GOVERN["<b>④ 治理反馈</b><br/>协同参数 C、临时保护、正式干预<br/>限制后续接触与损害扩展"]
+    UPDATE["<b>状态更新与记录</b><br/>保存 U(t)、行动、关系恢复和损害状态<br/>进入下一时间步，直至 t = T"]
+    INIT --> CONTACT --> BELIEF --> EVIDENCE --> GOVERN --> UPDATE
+    UPDATE -. "t ← t + 1" .-> CONTACT
+  end
+
+  OUT["<b>指标输出</b><br/>暴露率 · 错误采信率 · 现实行动率<br/>关系恢复率 · 相对控制成效"]
+  MC["<b>情景比较</b><br/>基准 + 五种机制条件<br/>500次配对 Monte Carlo<br/>比较方向与相对幅度，不估计现实发生率"]
+
+  IN --> SET --> INIT
+  UPDATE --> OUT --> MC
+
+  classDef input fill:#EAF4FF,stroke:#3B82C4,stroke-width:2px,color:#16324F;
+  classDef solve fill:#F4FBF8,stroke:#2E8B72,stroke-width:2px,color:#16324F;
+  classDef output fill:#FFF7E8,stroke:#D28A28,stroke-width:2px,color:#16324F;
+  class IN,SET input;
+  class INIT,CONTACT,BELIEF,EVIDENCE,GOVERN,UPDATE solve;
+  class OUT,MC output;
+  style SOLVE fill:#F8FCFA,stroke:#2E8B72,stroke-width:2px;

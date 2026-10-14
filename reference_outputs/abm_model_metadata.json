@@ -1,0 +1,49 @@
+{
+  "model_config": {
+    "N": 4000,
+    "T": 18,
+    "seed_rate": 0.005,
+    "lambda0": 2.25,
+    "q_source": 0.65,
+    "q_identity": 0.6,
+    "q_event": 0.55,
+    "q_propagation": 0.5,
+    "kappa": 3.0,
+    "coordination_evidence_gain": 0.5,
+    "temp_strength": 0.25,
+    "temp_window": 3,
+    "evidence_threshold_low": 0.25,
+    "evidence_threshold_high": 0.65,
+    "damage_threshold": 0.6,
+    "susceptibility_alpha": 2.2,
+    "susceptibility_beta": 2.4,
+    "literacy_alpha": 2.8,
+    "literacy_beta": 2.2
+  },
+  "coefficients": {
+    "belief_intercept": -1.25,
+    "belief_susceptibility": 1.25,
+    "belief_bias": 1.15,
+    "belief_unresolved": 1.25,
+    "belief_literacy": 1.05,
+    "share_intercept": -0.75,
+    "share_susceptibility": 0.75,
+    "share_bias": 0.8,
+    "share_unresolved": 0.75,
+    "share_literacy": 0.8,
+    "action_intercept": -2.55,
+    "action_susceptibility": 0.7,
+    "action_bias": 0.75,
+    "action_damage": 1.45,
+    "action_unresolved": 0.9,
+    "action_literacy": 0.75
+  },
+  "output_definitions": {
+    "exposure_rate": "fraction of user agents exposed at least once",
+    "misbelief_rate": "fraction of user agents that accepted the false/synthetic claim",
+    "action_rate": "fraction of user agents that generated a real-world risk action after belief",
+    "relation_restoration": "1 - initial-instability-weighted unresolved relation share at T",
+    "relative_control_effect": "1 - mean(action_rate_governance)/mean(action_rate_no_governance)"
+  },
+  "interpretation_boundary": "Mechanism sensitivity analysis only. Case codes anchor relation patterns and ordinal parameter ranges; they do not estimate behavioral probabilities or real-world policy effects."
+}

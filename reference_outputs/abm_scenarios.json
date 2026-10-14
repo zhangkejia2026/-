@@ -1,0 +1,22 @@
+{
+  "基准": {},
+  "平台放大": {
+    "platform_multiplier": 1.25
+  },
+  "认知偏差增强": {
+    "bias_shift": 0.15
+  },
+  "响应滞后": {
+    "delay_shift": 3
+  },
+  "关系证据强化": {
+    "evidence_multiplier": 1.45,
+    "delay_shift": -2
+  },
+  "协同与可逆干预": {
+    "coordination_shift": 0.3,
+    "intervention_multiplier": 1.25,
+    "temp_strength_override": 0.35,
+    "delay_shift": -1
+  }
+}
